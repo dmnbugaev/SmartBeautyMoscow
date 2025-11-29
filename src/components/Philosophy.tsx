@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './ffff/ImageWithFallback';
 import { Award, Zap, Crown } from 'lucide-react';
 
 const principles = [
@@ -29,8 +29,8 @@ export function Philosophy() {
           {/* Image Side */}
           <div className="order-2 lg:order-1">
             <div className="relative aspect-[4/5] overflow-hidden">
-              <ImageWithFallback
-                src=""
+              <img
+                src="./3.jpg"
                 alt="Smart Beauty Salon Interior"
                 className="w-full h-full object-cover grayscale"
               />

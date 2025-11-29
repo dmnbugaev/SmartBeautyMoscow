@@ -95,7 +95,7 @@ export function Footer() {
                     fontSize: '0.875rem'
                   }}
                 >
-                  hello@smartbeauty.ru
+                  smartbeauty.msk@mail.ru
                 </p>
               </div>
             </div>
@@ -154,15 +154,29 @@ export function Footer() {
             </h4>
             <div className="flex space-x-5">
               {[
-                { icon: Instagram, label: 'Instagram' },
-                { icon: MessageCircle, label: 'WhatsApp' },
-                { icon: Send, label: 'Telegram' }
+                { 
+                  icon: Instagram, 
+                  label: 'Instagram', 
+                  href: 'https://www.instagram.com/smartbeauty_msk?igsh=MTFsYXNudjF5dDE5YQ==' 
+                },
+                { 
+                  icon: MessageCircle, 
+                  label: 'WhatsApp', 
+                  href: 'https://wa.me/79684417700' 
+                },
+                { 
+                  icon: Send, 
+                  label: 'Telegram', 
+                  href: 'https://t.me/smartbeauty_msk' 
+                }
               ].map((social, index) => {
                 const Icon = social.icon;
                 return (
                   <a
                     key={index}
-                    href="#"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="transition-colors duration-300"
                     style={{ color: '#7D7D7D' }}
                     onMouseEnter={(e) => e.currentTarget.style.color = '#C0C0C0'}

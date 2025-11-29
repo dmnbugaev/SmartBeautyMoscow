@@ -14,6 +14,9 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Определяем, должен ли хедер быть белым
+  const shouldBeWhite = isScrolled || isMenuOpen;
+
   const navLinks = [
     { name: 'Главная', href: '#home' },
     { name: 'О нас', href: '#about' },
@@ -26,9 +29,9 @@ export function Header() {
     <header 
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: isScrolled ? 'rgba(250, 250, 250, 0.95)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(8px)' : 'none',
-        borderBottom: isScrolled ? '1px solid #E5E5E5' : '1px solid rgba(255, 255, 255, 0.1)'
+        backgroundColor: shouldBeWhite ? 'rgba(250, 250, 250, 0.95)' : 'transparent',
+        backdropFilter: shouldBeWhite ? 'blur(8px)' : 'none',
+        borderBottom: shouldBeWhite ? '1px solid #E5E5E5' : '1px solid rgba(255, 255, 255, 0.1)'
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -39,7 +42,7 @@ export function Header() {
               className="text-3xl tracking-tight transition-colors duration-300" 
               style={{ 
                 fontFamily: "'Playfair Display', serif", 
-                color: isScrolled ? '#2F2F2F' : '#FAFAFA'
+                color: shouldBeWhite ? '#2F2F2F' : '#FAFAFA'
               }}
             >
               Smart Beauty
@@ -55,12 +58,12 @@ export function Header() {
                 className="transition-colors duration-300"
                 style={{ 
                   fontFamily: "'Inter', sans-serif",
-                  color: isScrolled ? '#6B6B6B' : '#D4D4D4',
+                  color: shouldBeWhite ? '#6B6B6B' : '#D4D4D4',
                   fontSize: '0.9375rem',
                   letterSpacing: '0.02em'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#C0C0C0'}
-                onMouseLeave={(e) => e.currentTarget.style.color = isScrolled ? '#6B6B6B' : '#D4D4D4'}
+                onMouseLeave={(e) => e.currentTarget.style.color = shouldBeWhite ? '#6B6B6B' : '#D4D4D4'}
               >
                 {link.name}
               </a>
@@ -69,34 +72,37 @@ export function Header() {
 
           {/* Book Now Button - Desktop */}
           <div className="hidden md:block">
-            <button 
-              className="px-8 py-3 border transition-all duration-300"
+            <a 
+              target="_blank"
+              href="https://dikidi.net/683755"
+              className="px-8 py-3 border transition-all duration-300 inline-block cursor-pointer"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 backgroundColor: 'transparent',
-                color: isScrolled ? '#2F2F2F' : '#FAFAFA',
-                borderColor: isScrolled ? '#C0C0C0' : '#FAFAFA',
+                color: shouldBeWhite ? '#2F2F2F' : '#FAFAFA',
+                borderColor: shouldBeWhite ? '#C0C0C0' : '#FAFAFA',
                 fontSize: '0.9375rem',
-                letterSpacing: '0.05em'
+                letterSpacing: '0.05em',
+                textDecoration: 'none'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = isScrolled ? '#C0C0C0' : '#FAFAFA';
+                e.currentTarget.style.backgroundColor = shouldBeWhite ? '#C0C0C0' : '#FAFAFA';
                 e.currentTarget.style.color = '#2F2F2F';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = isScrolled ? '#2F2F2F' : '#FAFAFA';
+                e.currentTarget.style.color = shouldBeWhite ? '#2F2F2F' : '#FAFAFA';
               }}
             >
               ЗАПИСЬ
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden transition-colors duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            style={{ color: isScrolled ? '#2F2F2F' : '#FAFAFA' }}
+            style={{ color: shouldBeWhite ? '#2F2F2F' : '#FAFAFA' }}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -106,7 +112,7 @@ export function Header() {
         {isMenuOpen && (
           <nav 
             className="md:hidden py-6 transition-colors duration-300"
-            style={{ borderTop: isScrolled ? '1px solid #E5E5E5' : '1px solid rgba(255, 255, 255, 0.1)' }}
+            style={{ borderTop: shouldBeWhite ? '1px solid #E5E5E5' : '1px solid rgba(255, 255, 255, 0.1)' }}
           >
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
@@ -116,7 +122,7 @@ export function Header() {
                   className="py-2 transition-colors duration-300"
                   style={{ 
                     fontFamily: "'Inter', sans-serif",
-                    color: isScrolled ? '#6B6B6B' : '#D4D4D4',
+                    color: shouldBeWhite ? '#6B6B6B' : '#D4D4D4',
                     fontSize: '0.9375rem',
                     letterSpacing: '0.02em'
                   }}
@@ -125,19 +131,22 @@ export function Header() {
                   {link.name}
                 </a>
               ))}
-              <button 
-                className="px-8 py-3 border mt-4 transition-all duration-300"
+              <a 
+                target="_blank"
+                href= "https://dikidi.net/683755"
+                className="px-8 py-3 border mt-4 transition-all duration-300 inline-block"
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   backgroundColor: 'transparent',
-                  color: isScrolled ? '#2F2F2F' : '#FAFAFA',
-                  borderColor: isScrolled ? '#C0C0C0' : '#FAFAFA',
+                  color: shouldBeWhite ? '#2F2F2F' : '#FAFAFA',
+                  borderColor: shouldBeWhite ? '#C0C0C0' : '#FAFAFA',
                   fontSize: '0.9375rem',
-                  letterSpacing: '0.05em'
+                  letterSpacing: '0.05em',
+                  textDecoration: 'none' // убираем подчеркивание ссылки
                 }}
               >
                 ЗАПИСЬ
-              </button>
+              </a>
             </div>
           </nav>
         )}

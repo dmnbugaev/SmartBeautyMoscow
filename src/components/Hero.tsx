@@ -1,23 +1,34 @@
 import React from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './ffff/ImageWithFallback';
 
 export function Hero() {
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0">
-        <ImageWithFallback
-          src=""
-          alt="Luxury beauty treatment"
-          className="w-full h-full object-cover grayscale"
-        />
+
         {/* Dark overlay for text readability */}
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: 'linear-gradient(180deg, rgba(47, 47, 47, 0.4) 0%, rgba(47, 47, 47, 0.6) 100%)' 
-          }}
-        />
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 multilayer-gradient" />
+        </div>
+        <style>{`
+          .multilayer-gradient {
+            background: 
+              radial-gradient(circle at 20% 80%, rgba(80, 80, 80, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(30, 30, 30, 0.4) 0%, transparent 80%),
+              linear-gradient(180deg, rgba(47, 47, 47, 0.8) 0%, rgba(47, 47, 47, 0.3) 100%);
+            animation: pulseLayers 4s ease-in-out infinite;
+          }
+
+          @keyframes pulseLayers {
+            0%, 100% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 1;
+            }
+          }
+        `}</style>
       </div>
 
       {/* Content */}
@@ -53,8 +64,9 @@ export function Hero() {
 
           {/* CTA Button */}
           <div className="pt-4">
-            <button 
-              className="px-12 py-4 transition-all duration-300"
+            <a 
+              href="/services#services"
+              className="px-12 py-4 transition-all duration-300 inline-block"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 backgroundColor: '#C0C0C0',
@@ -62,7 +74,9 @@ export function Hero() {
                 fontSize: '0.9375rem',
                 letterSpacing: '0.1em',
                 fontWeight: 500,
-                border: '1px solid #C0C0C0'
+                border: '1px solid #C0C0C0',
+                textDecoration: 'none', // убираем подчеркивание ссылки
+                cursor: 'pointer'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = 'transparent';
@@ -76,14 +90,9 @@ export function Hero() {
               }}
             >
               НАШИ УСЛУГИ
-            </button>
+            </a>
           </div>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
-        <div className="w-px h-16 bg-gradient-to-b from-[#C0C0C0] to-transparent" />
       </div>
     </section>
   );

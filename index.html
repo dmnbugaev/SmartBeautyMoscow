@@ -1,15 +1,99 @@
-
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Website UI/UX Design</title>
-    </head>
-
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Основные SEO мета-теги -->
+    <title>Smart Beauty - Салон красоты Павелецкая</title>
+    <meta name="description" content="Салон красоты Smart Beauty в Москве на Дубининской ул. Услуги: массаж, косметология, наращивание ресниц, коррекция фигуры, перманентный макияж. Запись по телефону +7 (968) 441-77-00">
+    <meta name="keywords" content="салон красоты Москва, метро Павелецкая, массаж, косметология, наращивание ресниц, коррекция фигуры, перманентный макияж, маникюр, брови">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Smart Beauty - Салон красоты в Москве">
+    <meta property="og:description" content="Профессиональные услуги красоты в салоне Smart Beauty. Массаж, косметология, наращивание ресниц и многое другое">
+    <meta property="og:image" content="/og-image.jpg">
+    <meta property="og:url" content="https://smart-beauty-moscow.ru">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Smart Beauty - Салон красоты в Москве">
+    <meta name="twitter:description" content="Профессиональные услуги красоты у м. Павелецкая">
+    
+    <!-- Каноническая ссылка -->
+    <link rel="canonical" href="https://smartbeauty.ru">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Структурированные данные LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": "Smart Beauty",
+        "description": "Салон красоты в Москве предлагает полный спектр услуг: массаж, косметология, наращивание ресниц, коррекция фигуры, перманентный макияж",
+        "url": "https://smartbeauty.ru",
+        "telephone": "+7-968-441-77-00",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Дубининская ул., 11, стр. 1",
+            "addressLocality": "Москва",
+            "postalCode": "115054",
+            "addressCountry": "RU"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 55.728038,
+            "longitude": 37.636002
+        },
+        "openingHours": "Mo-Su 10:00-20:00",
+        "areaServed": "Москва и Московская область",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Услуги салона красоты",
+            "itemListElement": [
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Массаж",
+                    "itemListElement": [
+                        {"@type": "Service", "name": "Детский остеопат/мануальщик"},
+                        {"@type": "Service", "name": "Мануальный терапевт/остеопат"},
+                        {"@type": "Service", "name": "Расслабляющий массаж"},
+                        {"@type": "Service", "name": "Массаж рук"},
+                        {"@type": "Service", "name": "Массаж ног и ступней"},
+                        {"@type": "Service", "name": "Массаж шейно-воротниковой зоны"},
+                        {"@type": "Service", "name": "Массаж тела на выбор"},
+                        {"@type": "Service", "name": "Классический массаж спины"},
+                        {"@type": "Service", "name": "Stoun therapy"},
+                        {"@type": "Service", "name": "Массаж лица"}
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Брови и ресницы",
+                    "itemListElement": [
+                        {"@type": "Service", "name": "Архитектура бровей"},
+                        {"@type": "Service", "name": "Ламинирование ресниц"},
+                        {"@type": "Service", "name": "Ламинирование бровей"},
+                        {"@type": "Service", "name": "Голливудское наращивание"},
+                        {"@type": "Service", "name": "Классическое наращивание"},
+                        {"@type": "Service", "name": "Ботокс для ресниц и бровей"}
+                    ]
+                }
+            ]
+        },
+        "sameAs": [
+            "https://vk.com/smartbeauty",
+            "https://instagram.com/smartbeauty"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
