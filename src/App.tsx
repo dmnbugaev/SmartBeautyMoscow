@@ -6,6 +6,8 @@ import { Reviews } from './components/Reviews';
 import { SignUp } from './components/SignUp';
 import { Philosophy } from './components/Philosophy';
 import { Footer } from './components/Footer';
+import CookieConsent from './components/CookieConsent';
+import YandexMetrikaCounter from './components/YandexMetrikaCounter';
 
 export default function App() {
   return (
@@ -20,6 +22,11 @@ export default function App() {
         
       </main>
       <Footer />
+      
+
+      <CookieConsent />
+      {/* <YandexMetrikaCounter counterId={105876531} /> */}
+
     </div>
   );
 }
