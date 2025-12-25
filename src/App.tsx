@@ -25,7 +25,7 @@ export default function App() {
       
 
       <CookieConsent />
-      {/* <YandexMetrikaCounter counterId={105876531} /> */}
+      <YandexMetrikaCounter counterId={105876531} />
 
     </div>
   );
